@@ -1,0 +1,12 @@
+<ion-nav-view title="Add Category">
+  <ion-content>
+
+    <label class="item item-input item-label">
+      <span class="input-label" >Category Name</span>
+      <input type="text" placeholder="Category" ng-model="newCategory.name" >
+    </label>
+    <button class="button button-full button-energized" ng-click="addCategory()">Add</button>
+    <div class="assertive padding"> {{status}} </div>
+
+  </ion-content>
+</ion-nav-view>

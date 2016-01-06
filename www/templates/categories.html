@@ -1,0 +1,11 @@
+<ion-header-bar class="bar-positive bar-subheader">
+  <button class="button button-light" ui-sref="addCategory">Add Category</button>
+</ion-header-bar>
+
+<ion-view title="Categories">
+  <ion-content>
+    <div class="" ng-repeat="category in getCategories()">
+      <h2>{{category.name}} </h2>
+    </div>
+  </ion-content>
+</ion-view>

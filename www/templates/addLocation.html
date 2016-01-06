@@ -1,0 +1,38 @@
+<ion-view title="Add Location">
+  <ion-content>
+    <div class="list">
+
+      <label class="item item-input item-label">
+        <span class="input-label">Name</span>
+        <input type="text" placeholder="First Name" ng-model="newLocation.name">
+      </label>
+
+      <label class="item item-input item-label">
+        <span class="input-label">Address</span>
+        <input type="text" placeholder="Address" ng-model="newLocation.address">
+      </label>
+
+      <span>
+        <label class="item item-input item-label">
+          <span class="input-label">location</span>
+          <input type="text" placeholder="latitude" ng-model="newLocation.lat">
+        </label>
+        <label class="item item-input item-label">
+          <span class="input-label">location</span>
+          <input type="text" placeholder="latitude" ng-model="newLocation.lng">
+        </label>
+      </span>
+
+      <label class="item item-input item-select">
+        <span class="input-label">Category</span>
+        <select ng-model="newLocation.category">
+          <option ng-repeat="category in getCategories()">{{category.name}}</option>
+        </select>
+      </label>
+    </div>
+
+    <button class="button button-full button-energized" ng-click="addLocation()">Add</button>
+
+    <div class="assertive padding"> {{status}} </div>
+  </ion-content>
+</ion-view>

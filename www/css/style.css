@@ -1,0 +1,14 @@
+/* Empty. Add your own CSS if you like */
+
+.highlight {
+  background-color: #10f0f6;
+}
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}

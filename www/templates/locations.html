@@ -1,0 +1,39 @@
+<!--
+Locations view - holds a list of location
+-->
+<ion-view title="Locations">
+
+
+
+
+
+  <ion-header-bar class="bar-positive bar-subheader" style="height:auto">
+    <button class="button button-light" ng-click="deleteLocation()">Delete</button>
+    <button class="button button-light" ui-sref="addLocation">Add Location</button>
+  </ion-header-bar>
+
+
+  <ion-content>
+    <label class="item  item-select">
+      <span class="input-label">Select Category</span>
+      <select ng-model="filter.categorySelector">
+        <option>All</option>
+        <option ng-repeat="category in getCategories()">{{category.name}}</option>
+      </select>
+    </label>
+    <ion-toggle ng-model="groupItems" toggle-class="toggle-calm">Group by Category</ion-toggle>
+    {{groupItems}}
+
+    <ion-item ng-repeat="item in locations | filter:categoryFilter | orderBy: getOrderType(groupItems)" >
+      <div class="text" ng-click="locationSelected($index)" ng-class="{'highlight': $index==selectedItemIdx}">
+        <div> <h1><b>{{item.name}} </b></h1></div>
+        <div ng-if="$index==selectedItemIdx">
+          <div> <b>Address: &nbsp</b>{{item.address}} </div>
+          <div> <b>Coordinates: &nbsp</b>{{item.location.lat}},{{item.location.lng}} </div>
+          <div> <b>Category: &nbsp</b>{{item.category}} </div>
+          <button type="button button-light" name="button" ui-sref="map({lat:item.location.lat,lng:item.location.lng,name:item.name})" >Map</button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-content>
+</ion-view>
